@@ -1,0 +1,16 @@
+current directory: /home/tblandin/Documents/Blog/jube/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+/usr/bin/ruby -I /usr/lib/ruby/3.0.0 -r ./siteconf20210726-15317-5xe58x.rb extconf.rb
+creating Makefile
+
+current directory: /home/tblandin/Documents/Blog/jube/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+make DESTDIR\= clean
+
+current directory: /home/tblandin/Documents/Blog/jube/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+make DESTDIR\=
+compiling porter.c
+compiling porter_wrap.c
+linking shared-object stemmer.so
+
+current directory: /home/tblandin/Documents/Blog/jube/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 stemmer.so ./.gem.20210726-15317-acm8kc

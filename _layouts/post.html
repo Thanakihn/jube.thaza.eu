@@ -1,0 +1,148 @@
+---
+layout: default
+---
+
+{% if page.minutes %}
+  {% assign minutes = page.minutes %}
+{% else %}
+  {% assign minutes = content | number_of_words | divided_by: 180 %}
+  {% if minutes == 0 %}{% assign minutes = 1 %}{% endif %}
+{% endif %}
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      {% if site.data.thumbnail[page.thumbnail] %}
+      <div class="thumb">
+        <img itemprop="image" src="{{ site.data.thumbnail[page.thumbnail] }}" alt="Thumbnail: {{ page.thumbnail }}" />
+      </div>
+      {% elsif page.thumbnail %}
+      <div class="thumb">
+        <i class="fa fa-{{ page.thumbnail }} fa-4x"></i>
+      </div>
+      {% endif %}
+
+      <h1 class="header" itemprop="name">{{ page.title }}</h1>
+
+      <div class="author">
+        <small><i>
+          {% if page.author %}
+          by
+          <span itemprop="author">
+          </span>
+          {% endif %}
+          on <span itemprop="datePublished" content="2014-08-28">{{ page.date | date: "%B %-d, %Y" }}</span>
+          {% if page.categories != empty %} catégorie : {% for category in page.categories limit:1 %}{{ category }}{% endfor %}{% endif %}
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          temps de lecture estimé: {{ minutes }}
+        </small>
+      </div>
+
+      <div class="content-panel content">
+
+        {% if page.series %}
+          Cet article fait partie de la série: '{{ page.series }}':
+          <ol class="series">
+          {% for apost in site.posts reversed %}
+            {% if page.series == apost.series %}
+              <li>
+                {% if page.title == apost.title %}
+                  {% assign nextpost = true %}
+                  {{ apost.title }}
+                {% else %}
+                  {% if nextpost == true %}
+                    {% assign seriesnext = apost %}
+                  {% endif %}
+                  {% assign nextpost = false %}
+                  <a href="{{ apost.url }}">{{ apost.title }}</a>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+          </ol>
+        {% endif %}
+
+        <span itemprop="articleBody">{{ content }}</span>
+
+        {% if page.series %}
+          {% if seriesnext %}
+	  <i> Prochain article de cette série : </i> <a href="{{ seriesnext.url }}">{{ seriesnext.title }}</a>
+          {% endif %}
+        {% endif %}
+
+
+        {% if page.tags and page.tags.size > 0 %}
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            {{ page.tags | join: ', ' }}
+          </small>
+        </div>
+        {% endif %}
+
+      </div>
+
+      {% if site.twitter_username %}
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Laissez-moi savoir ce que vous avez pensé de cet article: <a href="http://www.twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> 
+      </div>
+      {% endif %}
+
+
+      {% if site.related_posts.length > 0 %}
+      <div class="content-panel related clearfix">
+        {% for post in site.related_posts limit:1 %}
+        <div class="related-header">
+          <a href="{{ site.baseurl }}{{ post.url }}">Read More</a>
+        </div>
+          <div class="title">
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          </div>
+          <div class="excerpt">
+             {% if post.summary %}
+              {{ post.summary | strip_html | truncatewords:30 }}
+             {% else %}
+              {{ post.excerpt | strip_html | truncatewords:30 }}
+             {% endif %}
+            <a href="{{ site.baseurl }}{{ post.url }}">Continue Reading</a>
+          </div>
+        {% endfor %}
+        <hr />
+        <div class="previous previous-next">
+          {% if page.previous %}
+          <p>
+            <a href="{{ site.baseurl }}{{ page.previous.url }}">{{ page.previous.title }}</a>
+          </p>
+          <p class="date">Publié le {{ page.previous.date | date: "%B %-d, %Y" }}</p>
+          {% endif %}
+        </div>
+        <div class="next previous-next">
+          {% if page.next %}
+          <p>
+            <a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }}</a>
+          </p>
+          <p class="date">Publié {{ page.next.date | date: "%B %-d, %Y" }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</div>
+
+ {% if page.custom_css %}
+    {% for stylesheet in page.custom_css %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ stylesheet }}.css">
+    {% endfor %}
+  {% endif %}
+
+
