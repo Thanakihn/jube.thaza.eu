@@ -45,3 +45,6 @@ kramdown:
 
 permalink: pretty
 exclude: [vendor]
+
+sass:
+  sass_dir: css
