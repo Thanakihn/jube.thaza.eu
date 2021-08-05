@@ -32,14 +32,14 @@ layout: default
           <span itemprop="author">
           </span>
           {% endif %}
-          on <span itemprop="datePublished" content="2014-08-28">{{ page.date | date: "%B %-d, %Y" }}</span>
-          {% if page.categories != empty %} catégorie : {% for category in page.categories limit:1 %}{{ category }}{% endfor %}{% endif %}
+          Le <span itemprop="datePublished" content="2014-08-28">{{ page.date | date: "%d-%m-%Y" }}</span>
+          {% if page.categories != empty %} |  catégorie : {% for category in page.categories limit:1 %}{{ category }}{% endfor %}{% endif %}
         </i></small>
       </div>
 
       <div class="read-time">
         <small>
-          temps de lecture estimé: {{ minutes }}
+          temps de lecture estimé: {{ minutes }}min
         </small>
       </div>
 

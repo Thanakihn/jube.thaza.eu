@@ -34,7 +34,7 @@ L'objectif est, à terme, d'avoir plusieurs auteurs afin de maximiser le recouvr
 
 ## Un petit test
 
-Hum, nous allons tester les l'inclusion d'équations:
+Hum, nous allons tester les l'inclusion d'équations (peut-être que nous reviendrons sur cette équation plus tard, *holala, quel suspense*):
 
-$$ \Psi(\mathbf{r}) = \int_0^{+\infty} g(\mathbf{k})e^{i\mathbf{k}\cdot\mathbf{r}}\ d\mathbf{k} $$
+$$ \Psi(\mathbf{r},t) = \int_0^{+\infty} g(\mathbf{k},t)e^{i\mathbf{k}\cdot\mathbf{r}}\ d\mathbf{k} $$
 

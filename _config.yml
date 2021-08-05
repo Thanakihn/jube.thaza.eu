@@ -1,6 +1,7 @@
 # Site settings
 title: "JUBE"
 email: tan.bland@hotmail.fr
+domain: jube.thaza.eu
 description: "Hum, c'est Juste Un Blog Étudiant"
 baseurl: ""
 url: "http://jube.thaza.eu/"
