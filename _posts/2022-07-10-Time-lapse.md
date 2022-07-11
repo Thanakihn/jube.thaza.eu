@@ -12,10 +12,12 @@ tags:
  - video
 custom_css: tech
 ---
-<i> Attention : je dispose de très peu de compétences en codage et j'ai finalement assez peu de culture des différents logiciels qui existent pour réaliser différentes tâches. Ce post relate donc le voyage d'un amateur d'informatique qui essaie de mener un projet personnel. Il y aura donc probablement des erreurs d'interprétation dans les explications les plus théoriques. Vous voilà prévenus, bonne lecture </i>
+<i> Attention : je dispose de très peu de compétences en programmation et j'ai finalement assez peu de culture des différents logiciels qui existent pour réaliser différentes tâches. Ce post relate donc le voyage d'un amateur d'informatique qui essaie de mener un projet personnel. Il y aura donc probablement des erreurs d'interprétation dans les explications les plus théoriques. Vous voilà prévenus, bonne lecture </i>
 
 
-<right><i>«Je vais profiter de ce blog pour tenir mon journal de bord»   L'auteur, il y a deux mois</i></right>
+<right><i>«Je vais profiter de ce blog pour tenir mon journal de bord» <bl/>  L'auteur, il y a deux mois</i></right>
+
+
 
 Bien qu'étant incapable de tenir mes promesses de régularité dans la tenue de ce blog, il est temps d'y proposer un nouvel article. 
 Plus technique cette fois-ci. Alors que nous travaillions au labo, mon collègue H. a eu une excellente idée: «Ça serait stylé de faire un timelapse d'une journée au labo».
@@ -35,7 +37,7 @@ Pour trouver une alternative, il y a des sites dédiés, par exemple [alternativ
 <figure>
    <img src="{{site.url}}/assets/2022-timelapse/entangle.png" 
       alt="Capture d'écran du programme entangle"/>
-<figcaption><center><b> Le programme *entangle* fonctionne du premier coup youhou</b></center></figcaption>
+<figcaption><center><b> Le programme entangle fonctionne du premier coup, youhou</b></center></figcaption>
 </figure>
 
 Bon, c'est super mais ça ne me dit pas comment faire pour contrôler l'appareil photo avec un code informatique (un script). En lisant la FAQ de *entangle*, on peut se rendre compte que le logiciel est basé sur un logiciel libre, sous licence GNU LPLG : [gPhoto2](http://www.gphoto.org/). C'est toujours le même concept : quoi que vous vouliez faire en informatique, il y a probablement un logiciel libre qui le fait déjà. En plus de trouver cette librairie, je trouve son [interfaçage sur Python](https://pypi.org/project/gphoto2/), ce qui me rend très heureux car au lieu de faire un vrai code je pourrais donc faire un script Python :).
